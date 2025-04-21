@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toonoverse</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 0.5rem 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        nav {
+            margin-top: 1rem;
+        }
+        nav button {
+            background: #555;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        nav button:hover {
+            background: #777;
+        }
+        .search-bar {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        .search-bar input {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-bar button {
+            background: #555;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background: #777;
+        }
+        main {
+            padding: 1rem; /* Reduced padding */
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 0.1rem 0; /* Further reduced padding */
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .blog-frame {
+            display: flex;
+            gap: 0.5rem; /* Reduced gap between image and text */
+        }
+        .blog-frame .image {
+            flex: 7;
+        }
+        .blog-frame .text {
+            flex: 3;
+        }
+        .blog-frame img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added depth */
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #555;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #777;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: -1;
+        }
+        .header-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+    <script>
+        function searchBlog() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const blogs = [
+                { title: 'Naruto Uzumaki', link: 'blog.html' },
+                { title: 'Sasuke Uchiha', link: 'next-blog.html' },
+                { title: 'Kakashi Hatake', link: 'another-blog.html' }
+            ];
+            const result = blogs.find(blog => blog.title.toLowerCase().includes(query));
+            if (result) {
+                window.location.href = result.link;
+            } else {
+                alert('No blog found for the given keyword.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <video class="header-video" autoplay muted loop>
+
+            <p>Your browser does not support the video tag. Please update your browser or try a different one.</p>
+        </video>
+        <div class="header-content">
+            <h1>Toonoverse</h1>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button onclick="searchBlog()">Search</button>
+            </div>
+            <nav>
+                <button onclick="location.href='index.html'">Home</button>
+                <div class="dropdown">
+                    <button>Blog</button>
+                    <div class="dropdown-content">
+                        <a href="blog.html">Naruto Uzumaki</a>
+                        <a href="next-blog.html">Sasuke Uchiha</a>
+                        <a href="another-blog.html">Kakashi Hatake</a>
+                    </div>
+                </div>
+                <button onclick="location.href='about.html'">About</button>
+                <button onclick="location.href='contact.html'">Contact</button>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="blog-frame">
+            <div class="image">
+                <img src="Image/2500093.jpg" alt="Blog Image">
+            </div>
+            <div class="text">
+                <h1>Naruto Uzumaki</h1>
+                <h2>A Ninja Who Never Gave Up.</h2>
+                <p>Naruto Uzumaki’s story is more than just an anime—it’s an inspiration. His journey from zero to hero taught us about persistence, loyalty, and the importance of never giving up on our dreams. Whether you're rewatching the Chunin Exams or discovering the Hidden Leaf Village for the first time, one thing is certain: Naruto will always remain one of the greatest anime of all time.</p>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <button onclick="location.href='previous-blog.html'" style="background: #555; color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Previous Blog</button>
+                    <button onclick="location.href='next-blog.html'" style="background: #555; color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Next Blog</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 My Blog</p>
+    </footer>
+</body>
+</html>
